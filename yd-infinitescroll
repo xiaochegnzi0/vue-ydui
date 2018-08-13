@@ -1,0 +1,25 @@
+<yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
+
+        <yd-list theme="1" slot="list">
+            <yd-list-item v-for="(item, key) in list" :key="key" :hh="item.type" v-show="item.type == 0">
+                    <img slot="img" :src="item.img">
+                    <span slot="title">{{item.title}}</span>
+                    <yd-list-other slot="other">
+                        <div>
+                            <span class="list-price">{{item.marketprice}}评论</span>
+                            <span class="list-del-price">{{item.productprice}}</span>
+                        </div>
+                        <!-- <div>content</div> -->
+                    </yd-list-other>
+            </yd-list-item>
+        </yd-list>
+
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip">没有更多</span>
+
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg"/>
+
+    </yd-infinitescroll>
+    
+你好，想问下使用此组件时，想要根据字段类型变换for循环中样式布局，但是却无法修改，在yd-list-item 中添加div层会让数据无法显示
